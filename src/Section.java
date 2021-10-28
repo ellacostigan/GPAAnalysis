@@ -1,5 +1,5 @@
 //section
-public class Section(){
+public class Section{
 
     public void student_name_array(){
 
@@ -27,7 +27,7 @@ public class Section(){
 
     }
     public void compare_section(){
-        
+
     }
 
 }
