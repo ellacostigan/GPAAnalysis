@@ -1,14 +1,9 @@
 //group
 public class Group{
-public void group_array(){
+public Section group_of_sections_array[];
+public float group_gpa;
+public String group_name;
 
-}
-public void group_gpa(){
-
-}
-public void group_name(){
-
-}
 public void compare_section_to_group(){
 
 }
