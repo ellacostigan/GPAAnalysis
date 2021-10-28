@@ -1,4 +1,6 @@
 
 public class GPA_Analysis {
-//Code
+    public static void main(String[]args){
+        //Code
+    }
 }
