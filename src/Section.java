@@ -46,6 +46,7 @@ public class Section{
                 counter += 1;
             }
     }
+    
     public void build_student_arrays(){
 
     }
