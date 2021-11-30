@@ -10,8 +10,12 @@ public class Section{
     public String section_name;
     public String section_professor;
     public float section_average;
+    public String grade;
+    private double gradeNum;
+
 
     public Section(String section) throws FileNotFoundException {
+        
         File tempFile = new File("src/" + section);
         Scanner scan = new Scanner(tempFile);
         String topLine = scan.nextLine();
@@ -56,5 +60,44 @@ public class Section{
     public void compare_section(){
 
     }
+    public void construct_section(String showGrade){
+        grade = showGrade;
+        gradeNum=0;
+    }
+    public double get_num_grade(){
+        String sym;
+        sym = grade.substring(1);
+        if(sym.isEmpty()){
+            return gradeNum;
+        }else if(gradeNum == 0){
+            return gradeNum;
+        }
+        if(sym.equals("+") && gradeNum != 4.0){
+            gradeNum = gradeNum + 0.3;
+        }else if(sym.equals("-")){
+            gradeNum = - 0.3;
+        }
 
-}
+        String letterGrade = grade.substring(0);
+
+        if(letterGrade.equalsIgnoreCase("A")) {
+            gradeNum = 4.0;
+        } else if(letterGrade.equalsIgnoreCase("B")) {
+            gradeNum = 3.0;
+        } else if(letterGrade.equalsIgnoreCase("C")) {
+            gradeNum = 2.0;
+        } else if(letterGrade.equalsIgnoreCase("D")) {
+            gradeNum = 1.0;
+        } else if(letterGrade.equalsIgnoreCase("F")) {
+            gradeNum = 0.0;
+        } else {
+            System.out.println("Invalid letter grade");
+        }
+
+        return gradeNum;
+    }
+
+    
+
+    }
+
