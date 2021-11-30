@@ -16,8 +16,8 @@ public class GPA_Analysis {
        //Should be COMSC234_01
        System.out.println(sections[1].student_id_array[0]);
        //Should be kaobzsm946
-       
-      
+       System.out.println(groups[0].group_of_sections_array.get(1).section_name);       
+       //Should be COMSC330_01
     }
 
     public static void import_files() throws FileNotFoundException{
@@ -63,6 +63,7 @@ public class GPA_Analysis {
             for (int j = 0; j < listOfSections.size(); j++){
                 sections[j] = new Section(listOfSections.get(j));
             }
+            System.out.println(sections.length);
             for (int k = 0; k < listOfGroups.size(); k++){
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
