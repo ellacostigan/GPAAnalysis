@@ -1,4 +1,3 @@
-import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -6,7 +5,9 @@ public class GPA_Analysis {
 
     static Section[] sections = {};
     static Group[] groups = {};
-    public static void main(String[]args) throws FileNotFoundException{
+ 
+    
+    public static void main(String[]args) throws IOException{
        import_files();
     
        System.out.println(groups[1].group_name);
@@ -15,16 +16,12 @@ public class GPA_Analysis {
        //Should be COMSC234_01
        System.out.println(sections[1].student_id_array[0]);
        //Should be kaobzsm946
+       
+      
     }
 
     public static void import_files() throws FileNotFoundException{
-        //File file = new File("src/AllGroups.txt");
-        //Scanner sc = new Scanner(file);
         
-        //while (sc.hasNextLine())
-        //    System.out.println(sc.nextLine());
-        
-
         ArrayList<String> listOfSections = new ArrayList<String>();
         ArrayList<String> listOfGroups = new ArrayList<String>();
         ArrayList<String> allGroupsList = new ArrayList<String>();
@@ -78,5 +75,11 @@ public class GPA_Analysis {
     
     
     }
+    
+   
+    public void number_to_letter(){
+
+    }
+
 
 }
