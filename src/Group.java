@@ -22,10 +22,10 @@ public class Group{
     }
 
     public void compare_section_to_group(){
-
+        //code
     }
     public void compare_group(){
-        
+        //code
     }
 
 }
