@@ -11,7 +11,6 @@ public class Group{
     public String group_name;
 
     public Group(String groups, Section[] sections) throws FileNotFoundException {
-        System.out.println(sections[0].section_name);
         File tempFile = new File("src/" + groups);
         Scanner scan = new Scanner(tempFile);
         this.group_name = scan.nextLine();
@@ -19,12 +18,9 @@ public class Group{
         while (scan.hasNextLine()){
             tempLine = scan.nextLine();
                 String[] str = tempLine.split("\\.");
-                System.out.println(tempLine);
-                System.out.println(str.length);
                 for (int i = 0; i < sections.length; i++){
                     if (str[0].equals(sections[i].section_name))
                         group_of_sections_array.add(sections[i]);
-                        System.out.println("Success");
                 }  
         }
     }

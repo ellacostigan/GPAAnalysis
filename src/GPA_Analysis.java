@@ -63,7 +63,6 @@ public class GPA_Analysis {
             for (int j = 0; j < listOfSections.size(); j++){
                 sections[j] = new Section(listOfSections.get(j));
             }
-            System.out.println(sections.length);
             for (int k = 0; k < listOfGroups.size(); k++){
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
