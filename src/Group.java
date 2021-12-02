@@ -23,9 +23,10 @@ public class Group{
                         group_of_sections_array.add(sections[i]);
                 }  
         }
+
     }
 
-    public void compare_section_to_group(){
+    public void compare_section_to_group(Section section){
         //code
     }
     public void compare_group(){

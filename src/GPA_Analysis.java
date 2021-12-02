@@ -15,10 +15,12 @@ public class GPA_Analysis {
        System.out.println(sections[0].section_name);
        //Should be COMSC234_01
        System.out.println(sections[3].student_id_array[0]);
-       //Should be kaobzsm946
-       System.out.println(groups[0].group_of_sections_array.get(1).section_name);       
+       //Should be qaqqottfsm014
+       System.out.println(groups[0].group_of_sections_array.get(0).section_name);       
        //Should be COMSC330_02
-       System.out.println(sections[0].student_gpa_array[0]);
+       System.out.println(sections[3].student_gpa_array[0]);
+
+
 
     }
 
@@ -75,13 +77,6 @@ public class GPA_Analysis {
     
     public void export_file(){
     
-    
     }
-    
-   
-    public void number_to_letter(){
-
-    }
-
 
 }
