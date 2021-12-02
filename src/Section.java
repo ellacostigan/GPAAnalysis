@@ -43,10 +43,15 @@ public class Section{
                 {    if(tempLine.charAt(i) == ',');
                         third_count++;
                 }
-                    lineArray = tempLine.split(",");
-                    student_id_array[counter] = lineArray[0];
-                    //student_name_array[counter] = lineArray[1] + lineArray[2];
-                    //student_gpa_array[counter] = lineArray[3];
+                    lineArray = tempLine.split("\"");
+
+                    if (lineArray[0].charAt(lineArray[0].length()-1) == ',' || lineArray[0].charAt(lineArray[0].length()-1) == ' '){
+                      student_id_array[counter] = lineArray[0].substring(0, lineArray[0].length() - 1);
+                    }
+                    if (lineArray[2].charAt(0) == ',' || lineArray[2].charAt(0) == ' '){
+                      student_gpa_array[counter] = lineArray[2].substring(1);
+                    }
+                    student_name_array[counter] = lineArray[1];
                 counter += 1;
             }
     }

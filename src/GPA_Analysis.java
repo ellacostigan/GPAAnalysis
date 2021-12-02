@@ -14,10 +14,12 @@ public class GPA_Analysis {
        //Should be Computer Science Program Group
        System.out.println(sections[0].section_name);
        //Should be COMSC234_01
-       System.out.println(sections[1].student_id_array[0]);
+       System.out.println(sections[3].student_id_array[0]);
        //Should be kaobzsm946
        System.out.println(groups[0].group_of_sections_array.get(1).section_name);       
-       //Should be COMSC330_01
+       //Should be COMSC330_02
+       System.out.println(sections[0].student_gpa_array[0]);
+
     }
 
     public static void import_files() throws FileNotFoundException{
