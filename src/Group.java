@@ -9,10 +9,11 @@ public class Group{
     public ArrayList<Section> group_of_sections_array = new ArrayList<Section>();
     public ArrayList<String> sectionsFromFile = new ArrayList<String>();
     public ArrayList<String> files_not_found = new ArrayList<String>();
-    public float group_gpa;
+    public double group_gpa;
     public String group_name;
 
     public Group(String groups, Section[] sections) throws FileNotFoundException {
+        double tempAvg = 0;
         File tempFile = new File("src/" + groups);
         Scanner scan = new Scanner(tempFile);
         this.group_name = scan.nextLine();
@@ -45,8 +46,12 @@ public class Group{
                 files_not_found.add(sectionsFromFile.get(i));
             }
         }
-        
-
+        for (int averageCounter = 0; averageCounter < group_of_sections_array.size(); averageCounter ++){
+            Section tempsection = group_of_sections_array.get(averageCounter);
+            tempAvg += tempsection.section_average;
+        }
+        group_gpa = tempAvg / group_of_sections_array.size();
+        group_gpa = Math.round(group_gpa * 100.0) / 100.0;
     }    
     public void compare_section_to_group(Section section){
         //code

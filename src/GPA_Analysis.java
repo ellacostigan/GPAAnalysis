@@ -21,10 +21,10 @@ public class GPA_Analysis {
        //System.out.println(sections[3].student_gpa_array[0]);
 
         for (int i = 0; i < groups.length; i++){
-            System.out.println("Group:" + groups[i].group_name);
+            System.out.println("Group:" + groups[i].group_name + " Group GPA: " + groups[i].group_gpa);
             System.out.println();
             for (int j = 0; j < groups[i].group_of_sections_array.size(); j++){
-                System.out.println("Section: " + groups[i].group_of_sections_array.get(j).section_name );
+                System.out.println("Section: " + groups[i].group_of_sections_array.get(j).section_name + " Section GPA: " + groups[i].group_of_sections_array.get(j).section_average);
                 System.out.println();
                 for (int l = 0; l < groups[i].group_of_sections_array.get(j).student_id_array.length-1; l++){
                     System.out.print(groups[i].group_of_sections_array.get(j).student_id_array[l] + " ");
@@ -34,17 +34,16 @@ public class GPA_Analysis {
                     System.out.println();
                 }
                 System.out.println();
+                System.out.println("--------------------------");
                 System.out.println();
             }
             for (int k = 0; k < groups[i].files_not_found.size(); k++){
                 System.out.println("*" + groups[i].files_not_found.get(k));
             }
             
-            System.out.println();   
+            System.out.println();
+            System.out.println("==========================");  
         }
-        //System.out.println(groups[2].group_of_sections_array.get(0).section_name);
-
-
     }
 
     public static void import_files() throws FileNotFoundException{

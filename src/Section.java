@@ -10,9 +10,11 @@ public class Section{
     public double student_gpa_number_array[];
     public String section_name;
     public String section_professor;
-    public float section_average;
+    public double section_average;
 
     public Section(String section) throws FileNotFoundException {
+        section_average = 0.0;
+        
         File tempFile = new File("src/" + section);
         Scanner scan = new Scanner(tempFile);
         String topLine = scan.nextLine();
@@ -61,6 +63,8 @@ public class Section{
                 //System.out.println(student_gpa_array[i]);
                 student_gpa_number_array[i] = get_num_grade(student_gpa_array[i]);
             }
+
+            section_average = Math.round(calculate_average() * 100.0) / 100.0;
 
             //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
     }
