@@ -26,7 +26,6 @@ public class Group{
             sectionsFromFile.add(tempString3[0]);
             counter++;
         }
-
         scan.close();
                 
         for (int i = 0; i < sectionsFromFile.size(); i++){

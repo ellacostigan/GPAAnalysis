@@ -63,9 +63,7 @@ public class Section{
                 //System.out.println(student_gpa_array[i]);
                 student_gpa_number_array[i] = get_num_grade(student_gpa_array[i]);
             }
-
             section_average = Math.round(calculate_average() * 100.0) / 100.0;
-
             //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
     }
     public Section(){
