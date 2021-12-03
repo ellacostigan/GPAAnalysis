@@ -11,16 +11,13 @@ public class Section{
     public String section_name;
     public String section_professor;
     public float section_average;
-    public String grade;
-
 
     public Section(String section) throws FileNotFoundException {
-        this.grade = "";
         File tempFile = new File("src/" + section);
         Scanner scan = new Scanner(tempFile);
         String topLine = scan.nextLine();
         String topLineArray[] = topLine.split(" ");
-        this.section_name = topLineArray[0];
+        this.section_name = topLineArray[0].replaceAll("\\.","_");
             
             String tempLine = "";
             Scanner tempScanner = new Scanner(tempFile);
@@ -29,6 +26,8 @@ public class Section{
                 count++;
                 tempScanner.nextLine();
             }
+            tempScanner.close();
+            
             student_name_array = new String[count];
             student_id_array = new String[count];
             student_gpa_array = new String[count];
@@ -39,11 +38,6 @@ public class Section{
                 tempLine = scan.nextLine();
                 String[] lineArray;
 
-                int third_count = 0;
-                for(int i=0; i < tempLine.length(); i++)
-                {    if(tempLine.charAt(i) == ',');
-                        third_count++;
-                }
                     lineArray = tempLine.split("\"");
 
                     if (lineArray[0].charAt(lineArray[0].length()-1) == ','){
@@ -60,22 +54,26 @@ public class Section{
                     student_name_array[counter] = lineArray[1];
                 counter += 1;
             }
+            scan.close();
 
             for (int i = 0; i < student_gpa_array.length-1; i++){
-                System.out.println(get_num_grade(student_gpa_array[i]));
+                //System.out.println(get_num_grade(student_gpa_array[i]));
                 //System.out.println(student_gpa_array[i]);
                 student_gpa_number_array[i] = get_num_grade(student_gpa_array[i]);
             }
 
-            System.out.println("Average: " +  calculate_average());
+            //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
+    }
+    public Section(){
+        this.section_name = "Empty Section";
     }
 
     public double calculate_average(){
-        int avg = 0;
+        double avg = 0;
         for (int i = 0; i < student_gpa_array.length; i++){
             avg += student_gpa_number_array[i];
         }
-        avg /= student_gpa_array.length;
+        avg /= student_gpa_array.length-1;
         return avg + 0.0;
     }
     public void compare_section(){

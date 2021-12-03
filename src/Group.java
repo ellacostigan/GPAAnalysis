@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Group{
 
     public ArrayList<Section> group_of_sections_array = new ArrayList<Section>();
+    public ArrayList<String> sectionsFromFile = new ArrayList<String>();
+    public ArrayList<String> files_not_found = new ArrayList<String>();
     public float group_gpa;
     public String group_name;
 
@@ -15,17 +17,37 @@ public class Group{
         Scanner scan = new Scanner(tempFile);
         this.group_name = scan.nextLine();
         String tempLine = "";
+        //System.out.println(group_name);
+        int counter = 0;
         while (scan.hasNextLine()){
             tempLine = scan.nextLine();
-                String[] str = tempLine.split("\\.");
-                for (int i = 0; i < sections.length; i++){
-                    if (str[0].equals(sections[i].section_name))
-                        group_of_sections_array.add(sections[i]);
-                }  
+            String[] tempString3 = tempLine.split("\\.");
+            sectionsFromFile.add(tempString3[0]);
+            counter++;
         }
 
-    }
+        scan.close();
+                
+        for (int i = 0; i < sectionsFromFile.size(); i++){
+            //System.out.println(sectionsFromFile.get(i).toString());
+            boolean isPresent = false;
+            for (int j = 0; j < sections.length; j++){
+                //System.out.println(sections[j].section_name + " " + sectionsFromFile.get(i) + i);
+                    if (sectionsFromFile.get(i).equalsIgnoreCase(sections[j].section_name)){
+                        sections[j].section_name = sections[j].section_name.toUpperCase();
+                        group_of_sections_array.add(sections[j]);
+                        j = sections.length;
+                        isPresent = true;
+                    }      
+        
+            }
+            if (isPresent == false){
+                files_not_found.add(sectionsFromFile.get(i));
+            }
+        }
+        
 
+    }    
     public void compare_section_to_group(Section section){
         //code
     }

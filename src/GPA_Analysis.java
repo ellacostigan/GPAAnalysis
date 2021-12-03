@@ -10,16 +10,39 @@ public class GPA_Analysis {
     public static void main(String[]args) throws IOException{
        import_files();
     
-       System.out.println(groups[1].group_name);
+       //System.out.println(groups[1].group_name);
        //Should be Computer Science Program Group
-       System.out.println(sections[0].section_name);
+       //System.out.println(sections[0].section_name);
        //Should be COMSC234_01
-       System.out.println(sections[3].student_id_array[0]);
+       //System.out.println(sections[3].student_id_array[0]);
        //Should be qaqqottfsm014
-       System.out.println(groups[0].group_of_sections_array.get(0).section_name);       
+       //System.out.println(groups[0].group_of_sections_array.get(0).section_name);       
        //Should be COMSC330_02
-       System.out.println(sections[3].student_gpa_array[0]);
+       //System.out.println(sections[3].student_gpa_array[0]);
 
+        for (int i = 0; i < groups.length; i++){
+            System.out.println("Group:" + groups[i].group_name);
+            System.out.println();
+            for (int j = 0; j < groups[i].group_of_sections_array.size(); j++){
+                System.out.println("Section: " + groups[i].group_of_sections_array.get(j).section_name );
+                System.out.println();
+                for (int l = 0; l < groups[i].group_of_sections_array.get(j).student_id_array.length-1; l++){
+                    System.out.print(groups[i].group_of_sections_array.get(j).student_id_array[l] + " ");
+                    System.out.print(groups[i].group_of_sections_array.get(j).student_name_array[l] + " ");
+                    System.out.print(groups[i].group_of_sections_array.get(j).student_gpa_array[l] + " ");
+                    System.out.print(groups[i].group_of_sections_array.get(j).student_gpa_number_array[l] + " ");
+                    System.out.println();
+                }
+                System.out.println();
+                System.out.println();
+            }
+            for (int k = 0; k < groups[i].files_not_found.size(); k++){
+                System.out.println("*" + groups[i].files_not_found.get(k));
+            }
+            
+            System.out.println();   
+        }
+        //System.out.println(groups[2].group_of_sections_array.get(0).section_name);
 
 
     }
