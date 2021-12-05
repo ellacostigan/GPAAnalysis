@@ -53,10 +53,14 @@ public class Group{
         group_gpa = Math.round(group_gpa * 100.0) / 100.0;
     }    
     public void compare_section_to_group(Section section){
-        //code
+        // need to update code here
+
     }
     public void compare_group(){
-        //code
+        // need to update...
+        // int String group_name;
+        // System.out.println(group.compareTo(group_name));
+
     }
 
 }

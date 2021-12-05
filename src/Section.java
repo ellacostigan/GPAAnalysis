@@ -79,7 +79,20 @@ public class Section{
         return avg + 0.0;
     }
     public void compare_section(){
+        /* need to update...
+        
+        int String student_name_array;
+        int String student_id_array;
+        int String student_gpa_array;
+        int String section_name;
+        int String section_professor;
 
+        System.out.println(student_name_array.compareTo(student_id_array));
+        System.out.println(student_name_array.compareTo(student_gpa_array));
+        System.out.println(student_name_array.compareTo(section_name));
+        System.out.println(student_name_array.compareTo(section_professor));
+
+        */ 
     }
 
     public double get_num_grade(String inputGrade){
