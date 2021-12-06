@@ -78,6 +78,25 @@ public class Section{
         avg /= student_gpa_array.length-1;
         return avg + 0.0;
     }
+    public static double calculate_stdev(double arr[])
+    {
+        double sum = 0.0;
+        double stdev = 0.0;
+        int length = arr.length;
+
+        for(double num : arr) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(double num: arr) {
+            stdev += Math.pow(num - mean, 2);
+        }
+
+        return Math.sqrt(stdev/length);
+    }
+
     public void compare_section(){
         /* need to update...
         
