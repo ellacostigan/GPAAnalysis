@@ -92,6 +92,7 @@ public class GPA_Analysis {
             for (int k = 0; k < listOfGroups.size(); k++){
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
+
     }
     public void create_report(){
     
