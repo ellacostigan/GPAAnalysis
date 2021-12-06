@@ -11,6 +11,8 @@ public class Section{
     public String section_name;
     public String section_professor;
     public double section_average;
+    public double section_stdev;
+    public static int count =0;
 
     public Section(String section) throws FileNotFoundException {
         section_average = 0.0;
@@ -65,6 +67,7 @@ public class Section{
             }
             section_average = Math.round(calculate_average() * 100.0) / 100.0;
             //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
+            
     }
     public Section(){
         this.section_name = "Empty Section";
@@ -78,25 +81,16 @@ public class Section{
         avg /= student_gpa_array.length-1;
         return avg + 0.0;
     }
-    public static double calculate_stdev(double arr[])
-    {
-        double sum = 0.0;
-        double stdev = 0.0;
-        int length = arr.length;
-
-        for(double num : arr) {
-            sum += num;
-        }
-
-        double mean = sum/length;
-
-        for(double num: arr) {
-            stdev += Math.pow(num - mean, 2);
-        }
-
-        return Math.sqrt(stdev/length);
-    }
-
+    public static double calculate_stdev(double n[],double avg)
+   {
+       double sigma=0.0;
+  
+    for(int i=0;i< count;i++) {
+           sigma = sigma + Math.pow((n[i] - avg),2);
+       }
+  
+       return Math.sqrt(sigma/(count-1));
+   }
     public void compare_section(){
         /* need to update...
         
