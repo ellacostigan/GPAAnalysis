@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 //section
-public class Section{
+public class Section implements Comparable<Section> {
     public String student_name_array[];
     public String student_id_array[];
     public String student_gpa_array[];
@@ -13,6 +13,8 @@ public class Section{
     public double section_average;
     public double section_stdev;
     public static int count =0;
+    public String section;
+    public double GPA;
 
     public Section(String section) throws FileNotFoundException {
         section_average = 0.0;
@@ -68,10 +70,22 @@ public class Section{
             section_average = Math.round(calculate_average() * 100.0) / 100.0;
             //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
             
+            
     }
     public Section(){
         this.section_name = "Empty Section";
     }
+    public Section(String s, double gpa ){
+        section = s;
+        GPA = gpa;
+    }
+    public String getName(){
+        return section;
+    }
+    public double getGPA(){
+        return GPA;
+    }
+
 
     public double calculate_average(){
         double avg = 0;
@@ -91,7 +105,14 @@ public class Section{
   
        return Math.sqrt(sigma/(count-1));
    }
+
+   public int compareTo(Section s){
+    return Double.valueOf(GPA).compareTo(s.getGPA());
+    }
+
     public void compare_section(){
+        
+
         /* need to update...
         
         int String student_name_array;
@@ -105,7 +126,7 @@ public class Section{
         System.out.println(student_name_array.compareTo(section_name));
         System.out.println(student_name_array.compareTo(section_professor));
 
-        */ 
+       */  
     }
 
     public double get_num_grade(String inputGrade){
@@ -144,6 +165,7 @@ public class Section{
 
         return gradeNum;
     }
+   
 
     
 
