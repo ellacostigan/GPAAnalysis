@@ -14,7 +14,7 @@ public class Section implements Comparable<Section> {
     public double section_stdev;
     public static int count =0;
     public String section;
-    public double GPA;
+    public static double GPA;
 
     public Section(String section) throws FileNotFoundException {
         section_average = 0.0;
@@ -79,10 +79,10 @@ public class Section implements Comparable<Section> {
         section = s;
         GPA = gpa;
     }
-    public String getName(){
+    public String getSection(){
         return section;
     }
-    public double getGPA(){
+    public static double getGPA(){
         return GPA;
     }
 
@@ -107,7 +107,7 @@ public class Section implements Comparable<Section> {
    }
 
    public int compareTo(Section s){
-    return Double.valueOf(GPA).compareTo(s.getGPA());
+    return Double.valueOf(GPA).compareTo(Section.getGPA());
     }
 
     public void compare_section(){

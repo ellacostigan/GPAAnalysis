@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 //group
@@ -11,6 +12,8 @@ public class Group{
     public ArrayList<String> files_not_found = new ArrayList<String>();
     public double group_gpa;
     public String group_name;
+    public String group;
+    public static double GPA;
 
     public Group(String groups, Section[] sections) throws FileNotFoundException {
         double tempAvg = 0;
@@ -52,10 +55,27 @@ public class Group{
         group_gpa = tempAvg / group_of_sections_array.size();
         group_gpa = Math.round(group_gpa * 100.0) / 100.0;
     }    
-    public void compare_section_to_group(Section section){
+    public Section compare_section_to_group(Section section){
         // need to update code here
+        return section;
 
     }
+    public Group(){
+        this.group_name = "Empty Section";
+    }
+    public Group(String g, double gpa ){
+        group =g;
+        GPA = gpa;
+    }
+    public String getGroup(){
+        return group;
+    }
+    public static double getGPA(){
+        return GPA;
+    }
+    public int compareTo(Group g){
+        return Double.valueOf(GPA).compareTo(Section.getGPA());
+        }
     public void compare_group(){
         // need to update...
         // int String group_name;
