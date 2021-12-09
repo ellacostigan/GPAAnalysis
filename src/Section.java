@@ -67,12 +67,10 @@ public class Section implements Comparable<Section> {
             tempSize = student_gpa_array.length;
 
             for (int i = 0; i < student_gpa_array.length-1; i++){
-                //System.out.println(get_num_grade(student_gpa_array[i]));
-                //System.out.println(student_gpa_array[i]);
                 student_gpa_number_array[i] = get_num_grade(student_gpa_array[i]);
             }
             section_average = Math.round(calculate_average() * 100.0) / 100.0;
-            //System.out.println("Section: " + section_name + " Average: " +  Math.round(calculate_average() * 100.0) / 100.0);
+           
             
             
     }
@@ -103,25 +101,6 @@ public class Section implements Comparable<Section> {
 
    public int compareTo(Section s){
     return Double.valueOf(GPA).compareTo(Section.getGPA());
-    }
-
-    public void compare_section(){
-        
-
-        /* need to update...
-        
-        int String student_name_array;
-        int String student_id_array;
-        int String student_gpa_array;
-        int String section_name;
-        int String section_professor;
-
-        System.out.println(student_name_array.compareTo(student_id_array));
-        System.out.println(student_name_array.compareTo(student_gpa_array));
-        System.out.println(student_name_array.compareTo(section_name));
-        System.out.println(student_name_array.compareTo(section_professor));
-
-       */  
     }
 
     public double get_num_grade(String inputGrade){
@@ -160,9 +139,5 @@ public class Section implements Comparable<Section> {
 
         return gradeNum;
     }
-   
-
-    
-
-    }
+}
 

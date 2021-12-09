@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 //group
@@ -109,15 +108,9 @@ public class Group{
     }
     public int compareTo(Group g){
         return Double.valueOf(GPA).compareTo(Section.getGPA());
-        }
-    public void compare_group(){
-        // need to update...
-        // int String group_name;
-        // System.out.println(group.compareTo(group_name));
-
     }
-    public double calculate_stdev(double n[],double avg)
-   {
+
+    public double calculate_stdev(double n[],double avg){
        int tempSize = n.length;
        double sum=0;
        double first_sum = 0;
