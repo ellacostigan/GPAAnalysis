@@ -64,33 +64,31 @@ public class GPA_Analysis {
         }   
     }
 
-    public static void import_files() throws FileNotFoundException{
+    public static void import_files() throws FileNotFoundException{ // Method that imports all the group
         
-        ArrayList<String> listOfSections = new ArrayList<String>();
+        ArrayList<String> listOfSections = new ArrayList<String>(); //ArrayLists are used to store the groups and sections pulled from the directory
         ArrayList<String> listOfGroups = new ArrayList<String>();
         ArrayList<String> allGroupsList = new ArrayList<String>();
 
-        String[] files;
+        String[] files; 
 
         File directory = new File("src");
 
-        files = directory.list();
+        files = directory.list(); // grabs all files within the src directory of the program
         
-        //System.out.println("Files in SRC \"" + directory + "\":");
-
-        for (int i = 0; i < files.length; i++) {
-            String tempFileName = files[i];
+        for (int i = 0; i < files.length; i++) { //loop through each file in the dir, determine whether it is a group, section or txt file and adds it to its respected array
+            
+            String tempFileName = files[i]; //grabs the file name and creates a file
             File tempFile = new File(files[i]);
-            String fileExtension = tempFile.toString();
+            String fileExtension = tempFile.toString(); //grabs the file extension by splitting over 
             int fileExtensionCount = fileExtension.lastIndexOf(".");
             String extension = "";
 
-            if(fileExtensionCount > 0) {
+            if(fileExtensionCount > 0) { // Makes sure there is actually an extension being grabbed
                 extension = fileExtension.substring(fileExtensionCount + 1);
-                //System.out.println("File extension is " + extension);
             }
 
-            if (extension.equalsIgnoreCase("sec")) {
+            if (extension.equalsIgnoreCase("sec")) { // takes the file extension grabbed and checks whether it is an sec, grp, or txt
                 listOfSections.add(tempFileName);
             } else if (extension.equalsIgnoreCase("grp")) {
                 listOfGroups.add(tempFileName);
@@ -99,14 +97,13 @@ public class GPA_Analysis {
             }
             
         }
+            sections = new Section[listOfSections.size()]; //converts arrayLists into a static and better to work with datatype.
+            groups = new Group[listOfGroups.size()];
             
-        sections = new Section[listOfSections.size()];
-        groups = new Group[listOfGroups.size()];
-            
-            for (int j = 0; j < listOfSections.size(); j++){
+            for (int j = 0; j < listOfSections.size(); j++){ // loops through the arrayList of imported Sections and creates them as objects using the Section Class.
                 sections[j] = new Section(listOfSections.get(j));
             }
-            for (int k = 0; k < listOfGroups.size(); k++){
+            for (int k = 0; k < listOfGroups.size(); k++){ // loops through the arrayList of imported Groups and creates them as objects using the Group Class.
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
            

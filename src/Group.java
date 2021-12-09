@@ -22,7 +22,6 @@ public class Group{
         Scanner scan = new Scanner(tempFile);
         this.group_name = scan.nextLine();
         String tempLine = "";
-        //System.out.println(group_name);
         int counter = 0;
         while (scan.hasNextLine()){
             tempLine = scan.nextLine();
@@ -33,10 +32,8 @@ public class Group{
         scan.close();
                 
         for (int i = 0; i < sectionsFromFile.size(); i++){
-            //System.out.println(sectionsFromFile.get(i).toString());
             boolean isPresent = false;
             for (int j = 0; j < sections.length; j++){
-                //System.out.println(sections[j].section_name + " " + sectionsFromFile.get(i) + i);
                     if (sectionsFromFile.get(i).equalsIgnoreCase(sections[j].section_name)){
                         sections[j].section_name = sections[j].section_name.toUpperCase();
                         group_of_sections_array.add(sections[j]);
@@ -61,11 +58,9 @@ public class Group{
         double tempNum = calculate_stdev(group_of_sections_gpa_array, group_gpa);
         groupDev = tempNum;
         for (int k = 0; k < group_of_sections_array.size(); k++){
-            //System.out.println(group_gpa + " " + group_of_sections_array.get(k).section_average);
             double temp_section_avg = group_of_sections_array.get(k).section_average;
             if (group_gpa < temp_section_avg){
                 double tempNum2 = group_gpa + tempNum;
-                //System.out.println(tempNum2 + " " + temp_section_avg);
                 if (tempNum2< temp_section_avg){
                     group_of_sections_array.get(k).isSignificant = true;
                     group_of_sections_array.get(k).significantDirection = "+";
