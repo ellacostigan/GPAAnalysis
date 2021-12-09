@@ -66,7 +66,7 @@ public class Group{
             double temp_section_avg = group_of_sections_array.get(k).section_average;
             if (group_gpa < temp_section_avg){
                 double tempNum2 = group_gpa + tempNum;
-                System.out.println(tempNum2 + " " + temp_section_avg);
+                //System.out.println(tempNum2 + " " + temp_section_avg);
                 if (tempNum2< temp_section_avg){
                     group_of_sections_array.get(k).isSignificant = true;
                     group_of_sections_array.get(k).significantDirection = "+";

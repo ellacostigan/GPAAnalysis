@@ -36,12 +36,6 @@ public class GPA_Analysis {
             System.out.println();
         }
         
-        double temp1 = groups[0].calculate_stdev(groups[0].group_of_sections_gpa_array, groups[0].group_gpa);
-        System.out.println(temp1);
-        System.out.println(groups[0].group_gpa);
-        for (int i = 0; i < groups[0].group_of_sections_array.size(); i++){
-            System.out.println(groups[0].group_of_sections_array.get(i).section_average);
-        }
     }
 
     public static void import_files() throws FileNotFoundException{
