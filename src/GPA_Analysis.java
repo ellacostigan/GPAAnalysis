@@ -1,49 +1,64 @@
 import java.io.*;
 import java.util.ArrayList;
 
+
+
 public class GPA_Analysis {
 
     static Section[] sections = {};
     static Group[] groups = {};
- 
+    static FileWriter fileWriter = null;
     
     public static void main(String[]args) throws IOException{
-       import_files();
-    
-       //System.out.println(groups[1].group_name);
-       //Should be Computer Science Program Group
-       //System.out.println(sections[0].section_name);
-       //Should be COMSC234_01
-       //System.out.println(sections[3].student_id_array[0]);
-       //Should be qaqqottfsm014
-       //System.out.println(groups[0].group_of_sections_array.get(0).section_name);       
-       //Should be COMSC330_02
-       //System.out.println(sections[3].student_gpa_array[0]);
+        
+
+      try{
+       
+        import_files();
+        fileWriter = new FileWriter("GPA_Analysis_Report");
+      
 
         for (int i = 0; i < groups.length; i++){
-            System.out.println("Group:" + groups[i].group_name + " Group GPA: " + groups[i].group_gpa);
-            System.out.println();
+            fileWriter.write("Group:" + groups[i].group_name + " Group GPA: " + groups[i].group_gpa);
+            fileWriter.write("\n");
             for (int j = 0; j < groups[i].group_of_sections_array.size(); j++){
-                System.out.println("Section: " + groups[i].group_of_sections_array.get(j).section_name + " Section GPA: " + groups[i].group_of_sections_array.get(j).section_average);
-                System.out.println();
+                fileWriter.write("Section: " + groups[i].group_of_sections_array.get(j).section_name + " Section GPA: " + groups[i].group_of_sections_array.get(j).section_average);
+                fileWriter.write("\n");
                 for (int l = 0; l < groups[i].group_of_sections_array.get(j).student_id_array.length-1; l++){
-                    System.out.print(groups[i].group_of_sections_array.get(j).student_id_array[l] + " ");
-                    System.out.print(groups[i].group_of_sections_array.get(j).student_name_array[l] + " ");
-                    System.out.print(groups[i].group_of_sections_array.get(j).student_gpa_array[l] + " ");
-                    System.out.print(groups[i].group_of_sections_array.get(j).student_gpa_number_array[l] + " ");
-                    System.out.println();
+                    fileWriter.write(groups[i].group_of_sections_array.get(j).student_id_array[l] + " ");
+                    fileWriter.write(groups[i].group_of_sections_array.get(j).student_name_array[l] + " ");
+                    fileWriter.write(groups[i].group_of_sections_array.get(j).student_gpa_array[l] + " ");
+                    fileWriter.write(groups[i].group_of_sections_array.get(j).student_gpa_number_array[l] + " ");
+                    fileWriter.write("\n");
+                
                 }
-                System.out.println();
-                System.out.println("--------------------------");
-                System.out.println();
+
+                }
+                fileWriter.write("\n");
+                fileWriter.write("--------------------------");
+                fileWriter.write("\n");
             }
-            for (int k = 0; k < groups[i].files_not_found.size(); k++){
-                System.out.println("*" + groups[i].files_not_found.get(k));
-            }
+           /* for (int k = 0; k < groups[i].files_not_found.size(); k++){
+                System.out.println("" + groups[i].files_not_found.get(k));
+            }*/
             
-            System.out.println();
-            System.out.println("==========================");  
-        }
+            fileWriter.write("\n");
+            fileWriter.write("==========================");  
+        
+    }catch(Exception e){
+        e.printStackTrace();
+    }finally{
+        try{
+            if(fileWriter != null){
+                fileWriter.flush();
+                fileWriter.close();
+            }  
+    }catch (IOException e){
+        e.printStackTrace();
+    }
+    }
+        
+        
     }
 
     public static void import_files() throws FileNotFoundException{
@@ -92,14 +107,14 @@ public class GPA_Analysis {
             for (int k = 0; k < listOfGroups.size(); k++){
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
-
+           
     }
     public void create_report(){
     
     }
     
     public void export_file(){
-    
+        
     }
 
 }
