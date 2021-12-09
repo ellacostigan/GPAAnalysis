@@ -10,47 +10,33 @@ public class GPA_Analysis {
     static FileWriter fileWriter = null;
     
     public static void main(String[]args) throws IOException{
-        
+      try{ 
 
-      try{
-       
         import_files();
         fileWriter = new FileWriter("GPA_Analysis_Report");
       
-
         for (int i = 0; i < groups.length; i++){
             fileWriter.write("Group:" + groups[i].group_name + " Group GPA: " + groups[i].group_gpa);
             fileWriter.write("\n");
+
             for (int j = 0; j < groups[i].group_of_sections_array.size(); j++){
-                String tempString = "";
-                if (groups[i].group_of_sections_array.get(j).isSignificant == true){
-                    if (groups[i].group_of_sections_array.get(j).significantDirection.equals("+")){
-                        tempString = " Significantly Greater than " + groups[i].group_gpa;
-                    } else if (groups[i].group_of_sections_array.get(j).significantDirection.equals("-")){
-                        tempString = " Significantly Less than " + groups[i].group_gpa;
-                    }
-                } else {
-                    tempString = " No Significance";
-                }
-                fileWriter.write("Section: " + groups[i].group_of_sections_array.get(j).section_name + " Section GPA: " + groups[i].group_of_sections_array.get(j).section_average + " " + tempString);
+
+                fileWriter.write("Section: " + groups[i].group_of_sections_array.get(j).section_name + " Section GPA: " + groups[i].group_of_sections_array.get(j).section_average);
                 fileWriter.write("\n");
+
                 for (int l = 0; l < groups[i].group_of_sections_array.get(j).student_id_array.length-1; l++){
                     fileWriter.write(groups[i].group_of_sections_array.get(j).student_id_array[l] + " ");
                     fileWriter.write(groups[i].group_of_sections_array.get(j).student_name_array[l] + " ");
                     fileWriter.write(groups[i].group_of_sections_array.get(j).student_gpa_array[l] + " ");
                     fileWriter.write(groups[i].group_of_sections_array.get(j).student_gpa_number_array[l] + " ");
                     fileWriter.write("\n");
-                
-                }
+                  }
 
-                }
+            }
                 fileWriter.write("\n");
                 fileWriter.write("--------------------------");
                 fileWriter.write("\n");
-            }
-           /* for (int k = 0; k < groups[i].files_not_found.size(); k++){
-                System.out.println("" + groups[i].files_not_found.get(k));
-            }*/
+        }
             
             fileWriter.write("\n");
             fileWriter.write("==========================");  
@@ -66,7 +52,7 @@ public class GPA_Analysis {
     }catch (IOException e){
         e.printStackTrace();
     }
-    }
+}
         
         
     }
@@ -118,13 +104,6 @@ public class GPA_Analysis {
                 groups[k] = new Group(listOfGroups.get(k), sections);
             }
            
-    }
-    public void create_report(){
-    
-    }
-    
-    public void export_file(){
-        
     }
 
 }
