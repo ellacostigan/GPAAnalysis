@@ -12,9 +12,11 @@ public class Section implements Comparable<Section> {
     public String section_professor;
     public double section_average;
     public double section_stdev;
-    public static int count =0;
+    public static int tempSize =0;
     public String section;
     public static double GPA;
+    public boolean isSignificant;
+    public String significantDirection;
 
     public Section(String section) throws FileNotFoundException {
         section_average = 0.0;
@@ -62,6 +64,8 @@ public class Section implements Comparable<Section> {
             }
             scan.close();
 
+            tempSize = student_gpa_array.length;
+
             for (int i = 0; i < student_gpa_array.length-1; i++){
                 //System.out.println(get_num_grade(student_gpa_array[i]));
                 //System.out.println(student_gpa_array[i]);
@@ -95,16 +99,7 @@ public class Section implements Comparable<Section> {
         avg /= student_gpa_array.length-1;
         return avg + 0.0;
     }
-    public static double calculate_stdev(double n[],double avg)
-   {
-       double sigma=0.0;
-  
-    for(int i=0;i< count;i++) {
-           sigma = sigma + Math.pow((n[i] - avg),2);
-       }
-  
-       return Math.sqrt(sigma/(count-1));
-   }
+    
 
    public int compareTo(Section s){
     return Double.valueOf(GPA).compareTo(Section.getGPA());
